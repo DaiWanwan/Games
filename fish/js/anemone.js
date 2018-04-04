@@ -8,11 +8,8 @@ var aneObj = function () {
     this.headY=[];
     this.Alpha=0;
     this.amp=[];
-
     // this.x = [];
     // this.y = [];
-
-
 };
 aneObj.prototype.num = 50;
 aneObj.prototype.init = function () {
@@ -37,9 +34,8 @@ aneObj.prototype.draw = function () {
         ctx2.beginPath();  // 开始路径
         ctx2.moveTo(this.rootX[i], canHeight);  // 末尾路径
         this.headX[i]=this.rootX[i]+l*this.amp[i];
-        ctx2.quadraticCurveTo(this.rootX[i],canHeight - 100,this.headX[i],this.headY[i]);   //  画线
-        // ctx2.moveTo(this.x[i], canHeight);  // 末尾路径
-        // ctx2.lineTo(this.x[i], canHeight - this.y[i]);   //  画线
+        //  设置海葵的摆动
+        ctx2.quadraticCurveTo(this.rootX[i],canHeight - 100,this.headX[i],this.headY[i]);   //  画线，正弦曲线
         ctx2.stroke();
     }
     ctx2.restore();

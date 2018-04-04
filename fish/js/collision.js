@@ -3,7 +3,7 @@
  */
 //  判断大鱼与果实的距离
 function momFruitcollision() {
-    if(!data.gameOver){
+    if(!data.gameOver&&data.start){
 
         for(var i=0;i<fruit.num;i++){
             if(fruit.alive[i]){
@@ -26,7 +26,7 @@ function momFruitcollision() {
 
 }
 function momBadycollision() {
-    if(!data.gameOver &&mum.mumBodyCount !=0){
+    if(!data.gameOver &&mum.mumBodyCount !=0 &&data.start){
         var l=calLength2(mum.x,mum.y,child.x,child.y);
         if(l<900){
             child.babyBodyCount=0;

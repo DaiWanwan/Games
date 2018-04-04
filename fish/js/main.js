@@ -30,7 +30,18 @@ var data;
 var wave;
 var dust;
 var dustPic=[];
-document.body.onload = game;
+var _control=document.querySelector('.control');
+var _btn=document.querySelector('.btn');
+document.body.onload = function(){
+
+    _btn.addEventListener('click',startGame,false);
+    game();
+};
+function startGame() {
+   _control.style.display= 'none';
+   data.startGame();
+}
+
 function game() {
     init();
     lastTime = Date.now();
@@ -83,7 +94,7 @@ function init() {
     child.init();
     //  鼠标位置
     mx=canWidth*0.5;
-    my=canHeight*0.5;
+    my=canHeight*0.5-100;
     //  小鱼尾巴
     for(var i=0;i<8;i++){
         childTail[i]= new Image();
@@ -140,4 +151,7 @@ function onMouseMove(e){
             my=e.offsetY==undefined?e.layerY:e.offsetY;
         }
     }
+}
+function drawBackground() {
+    ctx2.drawImage(bgPic,0,0,canWidth,canWidth);
 }

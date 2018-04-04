@@ -26,13 +26,38 @@
             width: 800px;
             height: 600px;
             margin: 10px auto;
+            position: relative;
         }
-
-        .allCanvas {
+        .all_bg .control{
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 10;
+        }
+        .all_bg .btn{
+            width: 200px;
+            height: 60px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            margin: -15px 0 0 -100px;
+            background-color: transparent;
+            line-height: 60px;
+            text-align: center;
+            font-size: 30px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px 0 orange;
+        }
+        .all_bg .allCanvas {
             position: relative;
             width: 800px;
             height: 600px;
             margin: 0;
+            z-index: 10;
         }
 
         #canvas1 {
@@ -63,14 +88,17 @@
         <li>小鱼为白色代表游戏结束</li>
     </ul>
 </div>
+
 <div class="all_bg">
     <div class="allCanvas">
         <canvas id="canvas1" width="800" height="600"></canvas>
         <canvas id="canvas2" width="800" height="600"></canvas>
     </div>
+    <div class="control">
+       <div class="btn">开始游戏</div>
+    </div>
 </div>
 <script type="text/javascript" src="./js/commonFunctions.js"></script>
-<script type="text/javascript" src="./js/background.js"></script>
 <script type="text/javascript" src="./js/anemone.js"></script>
 <script type="text/javascript" src="./js/fruit.js"></script>
 <script type="text/javascript" src="./js/mom.js"></script>

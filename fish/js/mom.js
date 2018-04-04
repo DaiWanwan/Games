@@ -19,7 +19,7 @@ var mumObj=function () {
 };
 mumObj.prototype.init=function () {
     this.x=canWidth*0.5;
-    this.y=canHeight*0.5;
+    this.y=canHeight*0.5-100;
     this.angle=0;
     // this.bigEye.src='./source/bigEye0.png';
     // this.bigBody.src='./source/bigSwim0.png';

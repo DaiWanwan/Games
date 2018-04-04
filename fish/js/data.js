@@ -5,8 +5,9 @@ var dataObj=function () {
     this.fruitNum=0;
     this._double=1;
     this.score=0;
-    this.gameOver=false;
+    this.gameOver=true;
     this.Alpha=0;
+    this.start=false;
 };
 // dataObj.prototype.reset=function () {
 //     this.fruitNum=0;
@@ -14,7 +15,7 @@ var dataObj=function () {
 //     this.score=0;
 // };
 dataObj.prototype.draw=function () {
-    if(!this.gameOver){
+    if(!this.gameOver&&this.start){
         ctx1.fillText('Score: ' +this.score,20,30);
     }
     var w=can1.width;
@@ -27,7 +28,7 @@ dataObj.prototype.draw=function () {
     ctx1.shadowBlur=10;
     ctx1.shadowColor='orange';
     ctx1.textAlign='center';
-    if(this.gameOver){
+    if(this.gameOver &&this.start){
         this.Alpha +=deltaTme*0.0005;
         if(this.Alpha>1){
             this.Alpha=1;
@@ -53,4 +54,21 @@ dataObj.prototype.addScore=function () {
     }
     this.fruitNum=0;
     this._double=1;
+};
+dataObj.prototype.startGame=function () {
+    this.start=true;
+    this.gameOver=false;
+    this.fruitNum=0;
+    this._double=1;
+    this.score=0;
+    this.Alpha=0;
+};
+dataObj.prototype.stopGame=function () {
+    data.gameOver=true;
+    // _control.style.display='block';
+    setTimeout(function(){
+        _control.style.display='block'
+    },1500);
+    child.babyBodyCount=0;
+    mum.babyBodyCount=0;
 };

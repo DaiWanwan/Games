@@ -20,46 +20,45 @@ var childObj=function () {
 };
 childObj.prototype.init=function () {
     this.x=canWidth*0.5-50;
-    this.y=canHeight*0.5+50;
+    this.y=canHeight*0.5-50;
     this.angle=0;
-    // this.babyEye.src='./source/babyEye0.png';
-    // this.babyBody.src='./source/babyFade0.png';
-    // this.babyTail.src='./source/babyTail0.png';
 };
 childObj.prototype.draw=function () {
-    this.x=lerpDistance(mum.x,this.x,0.99);
-    this.y=lerpDistance(mum.y,this.y,0.99);
-    var deltaX=mum.x-this.x;
-    var deltaY=mum.y-this.y;
-    var beta=Math.atan2(deltaY,deltaX)+Math.PI;
-    this.angle=lerpAngle(beta,this.angle,0.7);
+        this.x=lerpDistance(mum.x,this.x,0.99);
+        this.y=lerpDistance(mum.y,this.y,0.99);
+        var deltaX=mum.x-this.x;
+        var deltaY=mum.y-this.y;
+        var beta=Math.atan2(deltaY,deltaX)+Math.PI;
+        this.angle=lerpAngle(beta,this.angle,0.7);
 
-    //  尾巴摆动
-    this.babyTailTimer +=deltaTme;
-    if(this.babyTailTimer>50){
-        this.babyTailCount=(this.babyTailCount +1)%8;
-        this.babyTailTimer  %=50
-    }
-    // 眨眼睛
-    this.babyEyeTimer +=deltaTme;
-    if(this.babyEyeTimer>this.babyEyeIntervar){
-        this.babyEyeCount=(this.babyEyeCount +1)%2;
-        this.babyEyeTimer  %=this.babyEyeIntervar;
-        if(this.babyEyeCount==0){
-            this.babyEyeIntervar=Math.random()*2000+2000;
-        }else {
-            //  眨眼睛
-            this.babyEyeIntervar=200;
+        //  尾巴摆动
+        this.babyTailTimer +=deltaTme;
+        if(this.babyTailTimer>50){
+            this.babyTailCount=(this.babyTailCount +1)%8;
+            this.babyTailTimer  %=50
         }
-    }
-    //  身体变化
-    this.babyBodyTimer +=deltaTme;
-    if(this.babyBodyTimer>this.live){
-        this.babyBodyCount=this.babyBodyCount +1;
-        this.babyBodyTimer %=this.live;
-        if(this.babyBodyCount>=19){
-           this.babyBodyCount=19;  //  游戏结束
-            data.gameOver=true;
+        // 眨眼睛
+        this.babyEyeTimer +=deltaTme;
+        if(this.babyEyeTimer>this.babyEyeIntervar){
+            this.babyEyeCount=(this.babyEyeCount +1)%2;
+            this.babyEyeTimer  %=this.babyEyeIntervar;
+            if(this.babyEyeCount==0){
+                this.babyEyeIntervar=Math.random()*2000+2000;
+            }else {
+                //  眨眼睛
+                this.babyEyeIntervar=200;
+            }
+        }
+    if(data.start){
+        //  身体变化
+        this.babyBodyTimer +=deltaTme;
+        if(this.babyBodyTimer>this.live){
+            this.babyBodyCount=this.babyBodyCount +1;
+            this.babyBodyTimer %=this.live;
+            if(this.babyBodyCount>=19){
+                this.babyBodyCount=19;  //  游戏结束
+                data.stopGame();
+            }
         }
     }
     ctx1.save();
