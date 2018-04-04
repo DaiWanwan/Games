@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fish game</title>
+    <style type="text/css">
+        body {
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .introduction ul {
+            display: block;
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        .introduction ul li {
+            text-align: left;
+        }
+
+        .all_bg {
+            width: 800px;
+            height: 600px;
+            margin: 10px auto;
+        }
+
+        .allCanvas {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            margin: 0;
+        }
+
+        #canvas1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        #canvas2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<h2>爱心鱼游戏</h2>
+<div class="introduction">
+    <h2>玩法介绍</h2>
+    <ul>
+        <li>点击鼠标控制大鱼的移动方向</li>
+        <li>大鱼需要吃海葵产生的食物</li>
+        <li>食物有两种，蓝色果实和黄色果实</li>
+        <li>大鱼需要喂养小鱼，小鱼恢复体力</li>
+        <li>小鱼的体力随颜色变化，颜色越浅，体力越少</li>
+        <li>小鱼为白色代表游戏结束</li>
+    </ul>
+</div>
+<div class="all_bg">
+    <div class="allCanvas">
+        <canvas id="canvas1" width="800" height="600"></canvas>
+        <canvas id="canvas2" width="800" height="600"></canvas>
+    </div>
+</div>
+<script type="text/javascript" src="./js/commonFunctions.js"></script>
+<script type="text/javascript" src="./js/background.js"></script>
+<script type="text/javascript" src="./js/anemone.js"></script>
+<script type="text/javascript" src="./js/fruit.js"></script>
+<script type="text/javascript" src="./js/mom.js"></script>
+<script type="text/javascript" src="./js/collision.js"></script>
+<script type="text/javascript" src="./js/child.js"></script>
+<script type="text/javascript" src="./js/data.js"></script>
+<script type="text/javascript" src="./js/wave.js"></script>
+<script type="text/javascript" src="./js/dust.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+
+</body>
+</html>
