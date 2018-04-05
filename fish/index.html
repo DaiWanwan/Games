@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <title>fish game</title>
     <style type="text/css">
-        body {
-            padding: 10px;
+        body{
+            padding: 20px;
         }
-
-        h2 {
-            text-align: center;
-        }
-
-        .introduction ul {
-            display: block;
-            width: 350px;
+        .game{
+            box-sizing: border-box;
+            width: 1194px;
+            height: 709px;
             margin: 0 auto;
+            position: relative;
+            padding: 20px;
+            border: 2px dashed blue;
+            border-radius: 10px;
         }
-
-        .introduction ul li {
-            text-align: left;
-        }
-
         .all_bg {
+            display: inline-block;
             width: 800px;
             height: 600px;
-            margin: 10px auto;
             position: relative;
         }
+        .game h2 {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            margin-left: 340px;
+            font-size: 26px;
+            text-align: left;
+        }
         .all_bg .control{
+            display: inline-block;
             width: 800px;
             height: 600px;
             position: absolute;
@@ -73,30 +76,66 @@
             left: 0;
             z-index: 0;
         }
+        .introduction{
+            box-sizing: border-box;
+            display: inline-block;
+            padding: 0 0 0 20px;
+            width: 350px;
+            position: absolute;
+            top: 77px;
+        }
+        .introduction p{
+            line-height: 26px;
+            text-indent:25px;
+        }
+        .introduction h3{
+            margin: 0 auto 15px auto;
+            text-align: center;
+            font-size: 18px;
+        }
+        .introduction ul{
+            margin-left: -20px;
+        }
+        .introduction ul li {
+            line-height: 26px;
+            font-size: 16px;
+            text-align: left;
+        }
+
     </style>
 </head>
 <body>
-<h2>爱心鱼游戏</h2>
-<div class="introduction">
-    <h2>玩法介绍</h2>
-    <ul>
-        <li>点击鼠标控制大鱼的移动方向</li>
-        <li>大鱼需要吃海葵产生的食物</li>
-        <li>食物有两种，蓝色果实和黄色果实</li>
-        <li>大鱼需要喂养小鱼，小鱼恢复体力</li>
-        <li>小鱼的体力随颜色变化，颜色越浅，体力越少</li>
-        <li>小鱼为白色代表游戏结束</li>
-    </ul>
-</div>
+<div class="game">
+    <h2>爱心鱼小游戏</h2>
+    <div class="all_bg">
+        <div class="allCanvas">
+            <canvas id="canvas1" width="800" height="600"></canvas>
+            <canvas id="canvas2" width="800" height="600"></canvas>
+        </div>
+        <div class="control">
+            <div class="btn">开始游戏</div>
+        </div>
+    </div>
+    <div class="introduction">
+        <h3>游戏介绍</h3>
+        <p>一款爱心鱼HTML5小游戏，通过鼠标的自由移动控制鱼妈妈的移动方向，使鱼妈妈吃到更多的果实,
+        鱼妈妈吃到食物之后<b>喂养</b>鱼宝宝，鱼宝宝获得<b>生命值</b>并且获取<b>分数</b>。</p>
+        <h3>游戏规则</h3>
+        <ul>
+            <li>海藻会产生两种果实，蓝色和橙色果实；</li>
+            <li>移动鼠标可以控制鱼妈妈的移动方向；</li>
+            <li>鱼妈妈需要吃海藻产生的果实，以获得能量，鱼妈妈在吃到橙色食物后身体变橙色、吃到蓝色食物后身体变蓝；</li>
+            <li>鱼妈妈需要喂养鱼宝宝，鱼宝宝获得生命值，鱼宝宝身体颜色越浅，生命值越少；</li>
+            <li>当鱼宝宝身体颜色为白色时游戏结束；</li>
+            <li>随着游戏的继续，小鱼的生命消耗会加快；</li>
+        </ul>
+        <h3>记分规则</h3>
+        <ul>
+            <li>鱼妈妈每吃一颗海藻果实得10分，当吃到蓝色果实鱼妈妈目前的分数加倍；</li>
+            <li>鱼妈妈需要将能量传递给鱼宝宝才会得到分数；</li>
+        </ul>
+    </div>
 
-<div class="all_bg">
-    <div class="allCanvas">
-        <canvas id="canvas1" width="800" height="600"></canvas>
-        <canvas id="canvas2" width="800" height="600"></canvas>
-    </div>
-    <div class="control">
-       <div class="btn">开始游戏</div>
-    </div>
 </div>
 <script type="text/javascript" src="./js/commonFunctions.js"></script>
 <script type="text/javascript" src="./js/anemone.js"></script>

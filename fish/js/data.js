@@ -15,7 +15,7 @@ var dataObj=function () {
 //     this.score=0;
 // };
 dataObj.prototype.draw=function () {
-    if(!this.gameOver&&this.start){
+    if(!this.gameOver&& this.start){
         ctx1.fillText('Score: ' +this.score,20,30);
     }
     var w=can1.width;
@@ -28,7 +28,7 @@ dataObj.prototype.draw=function () {
     ctx1.shadowBlur=10;
     ctx1.shadowColor='orange';
     ctx1.textAlign='center';
-    if(this.gameOver &&this.start){
+    if(this.gameOver && this.start){
         this.Alpha +=deltaTme*0.0005;
         if(this.Alpha>1){
             this.Alpha=1;
@@ -70,5 +70,5 @@ dataObj.prototype.stopGame=function () {
         _control.style.display='block'
     },1500);
     child.babyBodyCount=0;
-    mum.babyBodyCount=0;
+    mum.mumBodyCount=0;
 };

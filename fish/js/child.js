@@ -49,7 +49,7 @@ childObj.prototype.draw=function () {
                 this.babyEyeIntervar=200;
             }
         }
-    if(data.start){
+    if(data.start && !data.gameOver){
         //  身体变化
         this.babyBodyTimer +=deltaTme;
         if(this.babyBodyTimer>this.live){
