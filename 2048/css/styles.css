@@ -7,12 +7,12 @@ body {
 header {
     display: block;
     margin: 0 auto;
-    width: 500px;
+    width: 100%;
     text-align: center;
 }
 
 header h1 {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -33,7 +33,7 @@ header #newGameBtn:hover,header #GameOver:hover {
 
 header p {
     font-size: 25px;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 #grid-container {

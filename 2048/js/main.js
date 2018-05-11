@@ -3,11 +3,32 @@ var score = 0;
 var hasConflicted = new Array();
 var times = 0;
 $(document).ready(function () {
+    prepareForMobile();
     newGame();
 });
+function prepareForMobile() {
+    if (documentWidth > 500) {
+        gridContainerWidth = 500;
+        cellSlideLength = 100;
+        cellSpace = 20;
+    }
+    var _gridContainer = $('#grid-container');
+    var _gridCell = $('.grid-cell');
+    _gridContainer.css({
+        'width': gridContainerWidth - 2 * cellSpace,
+        'height': gridContainerWidth - 2 * cellSpace,
+        'padding': cellSpace,
+        'border-radius': 0.02 * gridContainerWidth
+    });
+    _gridCell.css({
+        'width': cellSlideLength,
+        'height': cellSlideLength,
+        'border-radius': 0.02 * cellSlideLength
+    })
+}
 function newGame() {
-    var gameover=$('.gameover');
-    gameover.css('display','none');
+    var gameover = $('.gameover');
+    gameover.css('display', 'none');
     //  初始化
     init();
 //    随机的两个格子里，生成数字
@@ -44,23 +65,32 @@ function updateBoardView() {
             var theNumberCell = $('#number-cell-' + i + '-' + j);
 
             if (board[i][j] == 0) {
-                theNumberCell.css('width', '0px');
-                theNumberCell.css('height', '0px');
-                theNumberCell.css('top', getPosTop(i, j) + 50);
-                theNumberCell.css('left', getPosLeft(i, j) + 50);
+                theNumberCell.css({
+                    'width': '0px',
+                    'height': '0px',
+                    'top': (getPosTop(i, j) + cellSlideLength / 2) + 'px',
+                    'left': (getPosLeft(i, j) + cellSlideLength / 2) + 'px'
+                });
             }
             else {
-                theNumberCell.css('width', '100px');
-                theNumberCell.css('height', '100px');
-                theNumberCell.css('top', getPosTop(i, j));
-                theNumberCell.css('left', getPosLeft(i, j));
-                theNumberCell.css('background-color', getNumberBackgroundColor(board[i][j]));
-                theNumberCell.css('color', getNumberColor(board[i][j]));
+                theNumberCell.css({
+                    'width': cellSlideLength + 'px',
+                    'height': cellSlideLength + 'px',
+                    'top': getPosTop(i, j) + 'px',
+                    'left': getPosLeft(i, j) + 'px',
+                    'background-color': getNumberBackgroundColor(board[i][j]),
+                    'color': getNumberColor(board[i][j])
+                });
                 theNumberCell.text(board[i][j]);
             }
 
             hasConflicted[i][j] = false;
         }
+    var _numcell = $('.number-cell');
+    _numcell.css({
+        'line-height': cellSlideLength + 'px',
+        'font-size': 0.6 * cellSlideLength + 'px'
+    })
 }
 
 function generateOneNumber() {
