@@ -79,26 +79,26 @@ $(document).keydown(function (event) {
     switch (event.keyCode) {
         case 37:   //  left
             if (moveLeft()) {
-                generateOneNumber();
-                isGameOver();
+                setTimeout('generateOneNumber()', 210);
+                setTimeout('isGameOver()', 300);
             }
             break;
         case 38:  // top
             if (moveUp()) {
-                generateOneNumber();
-                isGameOver();
+                setTimeout('generateOneNumber()', 210);
+                setTimeout('isGameOver()', 300);
             }
             break;
         case 39:   // right
             if (moveRight()) {
-                generateOneNumber();
-                isGameOver();
+                setTimeout('generateOneNumber()', 210);
+                setTimeout('isGameOver()', 300);
             }
             break;
         case 40:  //  down
             if (moveDown()) {
-                generateOneNumber();
-                isGameOver();
+                setTimeout('generateOneNumber()', 210);
+                setTimeout('isGameOver()', 300);
             }
             break;
         default:
@@ -122,7 +122,7 @@ function moveLeft() {
                     } else if (board[i][k] === board[i][j] && noBlockHorizontal(i, k, j, board)) {
                         //  移动
                         showMoveAnimation(i, j, i, k);
-                        board[i][k] += board[i][j];
+                        board[i][k] *= 2;
                         board[i][j] = 0;
                         //    叠加
                         continue;
@@ -134,87 +134,82 @@ function moveLeft() {
     setTimeout('updateBoardView()', 200);
     return true;
 }
-function moveRight(){
-    if( !canMoveRight( board ) )
+function moveRight() {
+    if (!canMoveRight(board))
         return false;
 
     //moveRight
-    for( var i = 0 ; i < 4 ; i ++ )
-        for( var j = 2 ; j >= 0 ; j -- ){
-            if( board[i][j] != 0 ){
-                for( var k = 3 ; k > j ; k -- ){
-
-                    if( board[i][k] == 0 && noBlockHorizontal( i , j , k , board ) ){
-                        showMoveAnimation( i , j , i , k );
+    for (var i = 0; i < 4; i++)
+        for (var j = 2; j >= 0; j--) {
+            if (board[i][j] !== 0) {
+                for (var k = 3; k > j; k--) {
+                    if (board[i][k] === 0 && noBlockHorizontal(i, j, k, board)) {
+                        showMoveAnimation(i, j, i, k);
                         board[i][k] = board[i][j];
                         board[i][j] = 0;
                         continue;
                     }
-                    else if( board[i][k] == board[i][j] && noBlockHorizontal( i , j , k , board ) ){
-                        showMoveAnimation( i , j , i , k);
+                    else if (board[i][k] === board[i][j] && noBlockHorizontal(i, j, k, board)) {
+                        showMoveAnimation(i, j, i, k);
                         board[i][k] *= 2;
                         board[i][j] = 0;
-
                         continue;
                     }
                 }
             }
         }
 
-    setTimeout("updateBoardView()",200);
+    setTimeout("updateBoardView()", 200);
     return true;
 }
 
-function moveUp(){
-
-    if( !canMoveUp( board ) )
+function moveUp() {
+    if (!canMoveUp(board))
         return false;
-
     //moveUp
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 1 ; i < 4 ; i ++ ){
-            if( board[i][j] != 0 ){
-                for( var k = 0 ; k < i ; k ++ ){
+    for (var j = 0; j < 4; j++)
+        for (var i = 1; i < 4; i++) {
+            if (board[i][j] !== 0) {
+                for (var k = 0; k < i; k++) {
 
-                    if( board[k][j] == 0 && noBlockVertical( j , k , i , board ) ){
-                        showMoveAnimation( i , j , k , j );
+                    if (board[k][j] === 0 && noBlockVertical(j, k, i, board)) {
+                        showMoveAnimation(i, j, k, j);
                         board[k][j] = board[i][j];
                         board[i][j] = 0;
                         continue;
                     }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , k , i , board ) ){
-                        showMoveAnimation( i , j , k , j );
+                    else if (board[k][j] === board[i][j] && noBlockVertical(j, k, i, board)) {
+                        showMoveAnimation(i, j, k, j);
                         board[k][j] *= 2;
                         board[i][j] = 0;
-
                         continue;
                     }
                 }
             }
         }
 
-    setTimeout("updateBoardView()",200);
+    setTimeout("updateBoardView()", 200);
     return true;
 }
 
-function moveDown(){
-    if( !canMoveDown( board ) )
+function moveDown() {
+    if (!canMoveDown(board))
         return false;
 
     //moveDown
-    for( var j = 0 ; j < 4 ; j ++ )
-        for( var i = 2 ; i >= 0 ; i -- ){
-            if( board[i][j] != 0 ){
-                for( var k = 3 ; k > i ; k -- ){
+    for (var j = 0; j < 4; j++)
+        for (var i = 2; i >= 0; i--) {
+            if (board[i][j] !== 0) {
+                for (var k = 3; k > i; k--) {
 
-                    if( board[k][j] == 0 && noBlockVertical( j , i , k , board ) ){
-                        showMoveAnimation( i , j , k , j );
+                    if (board[k][j] === 0 && noBlockVertical(j, i, k, board)) {
+                        showMoveAnimation(i, j, k, j);
                         board[k][j] = board[i][j];
                         board[i][j] = 0;
                         continue;
                     }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , i , k , board ) ){
-                        showMoveAnimation( i , j , k , j );
+                    else if (board[k][j] === board[i][j] && noBlockVertical(j, i, k, board)) {
+                        showMoveAnimation(i, j, k, j);
                         board[k][j] *= 2;
                         board[i][j] = 0;
 
@@ -224,10 +219,15 @@ function moveDown(){
             }
         }
 
-    setTimeout("updateBoardView()",200);
+    setTimeout("updateBoardView()", 200);
     return true;
 }
 
 function isGameOver() {
-
+    if (nospace(board) && noMove(board)) {
+        gameOver();
+    }
+}
+function gameOver() {
+    alert('Game Over');
 }
