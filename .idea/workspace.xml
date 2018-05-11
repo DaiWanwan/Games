@@ -4,6 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/fish/js/data.js" line="44" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9d67f188-7389-4ffc-ab29-5d025fe161bf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2048/css/styles.css" afterPath="$PROJECT_DIR$/2048/css/styles.css" />
@@ -11,6 +12,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2048/js/main.js" afterPath="$PROJECT_DIR$/2048/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2048/js/support.js" afterPath="$PROJECT_DIR$/2048/js/support.js" />
     </list>
+=======
+    <list default="true" id="9d67f188-7389-4ffc-ab29-5d025fe161bf" name="Default" comment="" />
+>>>>>>> origin/game-2048
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -30,8 +34,13 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2048/index.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="125">
               <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+=======
+            <state relative-caret-position="75">
+              <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+>>>>>>> origin/game-2048
               <folding />
             </state>
           </provider>
@@ -40,8 +49,13 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2048/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="335">
               <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+=======
+            <state relative-caret-position="1275">
+              <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+>>>>>>> origin/game-2048
               <folding />
             </state>
           </provider>
@@ -50,6 +64,7 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/2048/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="475">
               <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
@@ -66,6 +81,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+=======
+            <state relative-caret-position="552">
+              <caret line="34" column="50" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+>>>>>>> origin/game-2048
               <folding />
             </state>
           </provider>
@@ -74,6 +93,7 @@
       <file leaf-file-name="support.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2048/js/support.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="325">
               <caret line="70" column="49" lean-forward="false" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
               <folding>
@@ -82,6 +102,11 @@
                 <element signature="n#!!block;n#nospace#0" expanded="false" />
                 <element signature="e#1229#1365#0" expanded="false" />
               </folding>
+=======
+            <state relative-caret-position="1200">
+              <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+              <folding />
+>>>>>>> origin/game-2048
             </state>
           </provider>
         </entry>
@@ -135,9 +160,15 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
     <option name="x" value="532" />
     <option name="y" value="35" />
     <option name="width" value="1081" />
+=======
+    <option name="x" value="309" />
+    <option name="y" value="31" />
+    <option name="width" value="1218" />
+>>>>>>> origin/game-2048
     <option name="height" value="931" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -158,6 +189,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="Scope" />
+>>>>>>> origin/game-2048
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -218,7 +253,10 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scope" />
+=======
+>>>>>>> origin/game-2048
       <pane id="Scratches" />
     </panes>
   </component>
@@ -317,13 +355,19 @@
       <workItem from="1524489691457" duration="298000" />
       <workItem from="1525702247214" duration="1739000" />
       <workItem from="1525747429648" duration="33000" />
+<<<<<<< HEAD
       <workItem from="1525789220674" duration="2140000" />
       <workItem from="1525829343036" duration="270000" />
       <workItem from="1526016833783" duration="4738000" />
+=======
+      <workItem from="1525789220674" duration="2031000" />
+      <workItem from="1526024641741" duration="19000" />
+>>>>>>> origin/game-2048
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="54321000" />
   </component>
   <component name="ToolWindowManager">
@@ -331,21 +375,30 @@
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19175455" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <option name="totallyTimeSpent" value="49223000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="309" y="31" width="1218" height="931" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20169492" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> origin/game-2048
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882273" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +417,11 @@
     <entry file="file://$PROJECT_DIR$/2048/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
+<<<<<<< HEAD
           <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+=======
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+>>>>>>> origin/game-2048
           <folding />
         </state>
       </provider>
@@ -410,10 +467,17 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/2048/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+=======
+    <entry file="file://$PROJECT_DIR$/2048/js/support.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+>>>>>>> origin/game-2048
           <folding />
         </state>
       </provider>
@@ -480,6 +544,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/2048/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+=======
+    <entry file="file://$PROJECT_DIR$/2048/muke-2048/main2048.js" />
+    <entry file="file://$PROJECT_DIR$/2048/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/2048/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
@@ -492,6 +571,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> origin/game-2048
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/2048/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#updateBoardView#0" expanded="false" />
@@ -500,6 +589,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/game-2048
     <entry file="file://$PROJECT_DIR$/2048/muke-2048/main2048.js" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -647,6 +738,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -660,35 +752,53 @@
             <element signature="n#!!block;n#nospace#0" expanded="false" />
             <element signature="e#1229#1365#0" expanded="false" />
           </folding>
+=======
+>>>>>>> origin/game-2048
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2048/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="335">
           <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+=======
+        <state relative-caret-position="1275">
+          <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+>>>>>>> origin/game-2048
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2048/index.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="125">
           <caret line="5" column="51" lean-forward="true" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+=======
+        <state relative-caret-position="75">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+>>>>>>> origin/game-2048
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2048/js/showNumberAnimation.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="225">
           <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+=======
+        <state relative-caret-position="1200">
+          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+>>>>>>> origin/game-2048
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2048/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="475">
           <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
@@ -696,6 +806,11 @@
             <element signature="n#!!block;n#updateBoardView#0" expanded="false" />
             <element signature="n#!!block;n#generateOneNumber#0" expanded="false" />
           </folding>
+=======
+        <state relative-caret-position="552">
+          <caret line="34" column="50" lean-forward="true" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+          <folding />
+>>>>>>> origin/game-2048
         </state>
       </provider>
     </entry>
