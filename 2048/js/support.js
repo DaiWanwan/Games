@@ -3,10 +3,10 @@ var gridContainerWidth = 0.92 * documentWidth;
 var cellSlideLength = 0.18 * documentWidth;
 var cellSpace = 0.04 * documentWidth;
 function getPosTop(i, j) {
-    return cellSpace + i * (cellSlideLength+cellSpace);
+    return cellSpace + i * (cellSlideLength + cellSpace);
 }
 function getPosLeft(i, j) {
-    return cellSpace + j * (cellSlideLength+cellSpace);
+    return cellSpace + j * (cellSlideLength + cellSpace);
 }
 
 function getNumberBackgroundColor(number) {
@@ -151,4 +151,5 @@ function gameOver() {
     gameover.css('display', 'block');
     var _score = $('#finalscore');
     _score.text(score);
+    document.removeEventListener('touchend', touchMove);
 }
