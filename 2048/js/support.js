@@ -51,8 +51,23 @@ function getNumberBackgroundColor(number) {
 }
 
 function getNumberColor(number) {
-    if (number <= 4)
+    if (number <= 4) {
         return "#776e65";
-
+    }
     return "white";
+}
+
+function nospace(board) {
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+            if (board[i][j] === 0) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+function randomPos(i) {
+    var p = parseInt(Math.floor(Math.random() * i));
+    return p;
 }
