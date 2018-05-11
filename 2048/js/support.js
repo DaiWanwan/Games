@@ -141,3 +141,7 @@ function noMove(board) {
     }
     return true;
 }
+
+function gameOver() {
+    alert('Game Over');
+}
