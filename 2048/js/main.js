@@ -6,6 +6,8 @@ $(document).ready(function () {
     newGame();
 });
 function newGame() {
+    var gameover=$('.gameover');
+    gameover.css('display','none');
     //  初始化
     init();
 //    随机的两个格子里，生成数字

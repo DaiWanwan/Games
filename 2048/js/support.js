@@ -143,5 +143,8 @@ function noMove(board) {
 }
 
 function gameOver() {
-    alert('Game Over');
+    var gameover = $('.gameover');
+    gameover.css('display', 'block');
+    var _score = $('#finalscore');
+    _score.text(score);
 }

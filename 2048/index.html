@@ -9,8 +9,10 @@
 <body>
 <header>
     <h1>2048</h1>
-    <a href="javascript:newGame();" id="newGameBtn">开始游戏</a>
     <p>Score:<span id="score">0</span></p>
+    <a href="javascript:newGame();" id="newGameBtn">开始游戏</a>
+    <a href="javascript:gameOver()" id="GameOver">结束游戏</a>
+
 </header>
 <div id="grid-container">
     <div class="grid-cell" id="grid-cell-0-0"></div>
@@ -32,6 +34,14 @@
     <div class="grid-cell" id="grid-cell-3-1"></div>
     <div class="grid-cell" id="grid-cell-3-2"></div>
     <div class="grid-cell" id="grid-cell-3-3"></div>
+</div>
+
+<div class="gameover">
+    <div class="content">
+        <P>Game Over</P>
+        <P>You Score: <span id="finalscore"> </span></P>
+        <a href="javascript:newGame();">开始游戏</a>
+    </div>
 </div>
 
 <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
