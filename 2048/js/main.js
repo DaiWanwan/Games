@@ -1,7 +1,6 @@
 var board = new Array();
 var score = 0;
 var hasConflicted = new Array();
-var times = 0;
 
 var startX = 0;
 var startY = 0;
@@ -21,15 +20,15 @@ function prepareForMobile() {
     var _gridContainer = $('#grid-container');
     var _gridCell = $('.grid-cell');
     _gridContainer.css({
-        'width': gridContainerWidth - 2 * cellSpace,
-        'height': gridContainerWidth - 2 * cellSpace,
-        'padding': cellSpace,
-        'border-radius': 0.02 * gridContainerWidth
+        'width': (gridContainerWidth - 2 * cellSpace) + 'px',
+        'height': (gridContainerWidth - 2 * cellSpace) + 'px',
+        'padding': cellSpace + 'px',
+        'border-radius': '6px'
     });
     _gridCell.css({
-        'width': cellSlideLength,
-        'height': cellSlideLength,
-        'border-radius': 0.02 * cellSlideLength
+        'width': cellSlideLength + 'px',
+        'height': cellSlideLength + 'px',
+        'border-radius': '6px'
     });
 }
 function newGame() {
@@ -40,21 +39,16 @@ function newGame() {
 //    随机的两个格子里，生成数字
     generateOneNumber();
     generateOneNumber();
-    document.addEventListener('touchstart', function (event) {
-        startX = event.touches[0].pageX;
-        startY = event.touches[0].pageY;
-    });
-    document.addEventListener('touchmove', function (event) {
-        event.preventDefault();
-    })
     document.addEventListener('touchend', touchMove);
 }
 function init() {
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 4; j++) {
             var gridCell = $('#grid-cell-' + i + "-" + j);
-            gridCell.css('top', getPosTop(i, j));
-            gridCell.css('left', getPosLeft(i, j));
+            gridCell.css({
+                'top': getPosTop(i, j) + 'px',
+                'left': getPosLeft(i, j) + 'px'
+            });
         }
     }
     for (var i = 0; i < 4; i++) {
@@ -78,7 +72,7 @@ function updateBoardView() {
             $("#grid-container").append('<div class="number-cell" id="number-cell-' + i + '-' + j + '"></div>');
             var theNumberCell = $('#number-cell-' + i + '-' + j);
 
-            if (board[i][j] == 0) {
+            if (board[i][j] === 0) {
                 theNumberCell.css({
                     'width': '0px',
                     'height': '0px',
@@ -112,6 +106,7 @@ function generateOneNumber() {
         return false;
     }
     //  随机一个位置
+    var times = 0;
     var randx = randomPos(4);
     var randy = randomPos(4);
     while (times < 50) {
@@ -120,7 +115,7 @@ function generateOneNumber() {
         }
         randx = randomPos(4);
         randy = randomPos(4);
-        times++;
+        times ++;
     }
     if (times === 50) {
         for (var i = 0; i < 4; i++) {
@@ -137,7 +132,7 @@ function generateOneNumber() {
     //显示
     board[randx][randy] = randNumber;
     showNumberAnimation(randx, randy, randNumber);
-    return true
+    return true;
 }
 
 $(document).keydown(function (event) {
@@ -174,14 +169,25 @@ $(document).keydown(function (event) {
             break;
     }
 });
-
+document.addEventListener('touchstart', function (event) {
+    startX = event.touches[0].pageX;
+    startY = event.touches[0].pageY;
+});
+// $('body').on('touchmove', function (event) {
+//
+//     event.preventDefault();
+//
+// });
+// document.addEventListener('touchmove', function (event) {
+//     event.preventDefault();
+// });
 // document.addEventListener('touchend', touchMove);
 function touchMove(event) {
     endX = event.changedTouches[0].pageX;
     endY = event.changedTouches[0].pageY;
     var deltX = endX - startX;
     var deltY = endY - startY;
-    if (Math.abs(deltX) < 0.3 * documentWidth && Math.abs(deltY) < 0.3 * documentWidth) {
+    if (Math.abs(deltX) < 0.1 * documentWidth && Math.abs(deltY) < 0.1 * documentWidth) {
         return;
     }
     if (Math.abs(deltX) > Math.abs(deltY)) {
