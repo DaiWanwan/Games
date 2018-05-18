@@ -180,9 +180,9 @@ document.addEventListener('touchstart', function (event) {
 //     event.preventDefault();
 //
 // });
-document.addEventListener('touchmove', function (event) {
-    event.preventDefault();
-});
+// document.addEventListener('touchmove', function (event) {
+//     event.preventDefault();
+// });
 // document.addEventListener('touchend', touchMove);
 function touchMove(event) {
     endX = event.changedTouches[0].pageX;
