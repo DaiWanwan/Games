@@ -34,6 +34,8 @@ function prepareForMobile() {
 function newGame() {
     var gameover = $('.gameover');
     gameover.css('display', 'none');
+    var _score = $('#score');
+    _score.text(0);
     //  初始化
     init();
 //    随机的两个格子里，生成数字
