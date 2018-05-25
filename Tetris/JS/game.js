@@ -38,7 +38,7 @@ let Game = function () {
     let nextDivs = [];
     let gameDivs = [];
 //    初始化divs
-    let initDiv = function (container, data, divs) {
+    let initDiv = (container, data, divs) => {
         for (let i = 0; i < data.length; i++) {
             let Div = [];
             for (let j = 0; j < data[0].length; j++) {
@@ -53,7 +53,7 @@ let Game = function () {
         }
     };
 //    刷新div
-    let refreshDiv = function (data, divs) {
+    let refreshDiv = (data, divs) => {
         for (let i = 0; i < data.length; i++) {
             for (let j = 0; j < data[0].length; j++) {
                 if (data[i][j] === 0) {
@@ -67,7 +67,7 @@ let Game = function () {
         }
     };
 //    检测点是否合法
-    let check = function (pos, x, y) {
+    let check = (pos, x, y) => {
         if ((pos.x + x < 0) || (pos.x + x >= gameData.length) || (pos.y + y < 0) || (pos.y + y >= gameData[0].length) || (gameData[pos.x + x][pos.y + y] === 1)) {
             return false;
         } else {
@@ -75,7 +75,7 @@ let Game = function () {
         }
     };
 //    检测数据是否合法
-    let isValid = function (pos, data) {
+    let isValid = (pos, data) => {
         for (let i = 0; i < cur.data.length; i++) {
             for (let j = 0; j < cur.data[0].length; j++) {
                 if (data[i][j] !== 0) {
@@ -88,7 +88,7 @@ let Game = function () {
         return true;
     };
 //    清除数据
-    let clearData = function () {
+    let clearData = () => {
         for (let i = 0; i < cur.data.length; i++) {
             for (let j = 0; j < cur.data[0].length; j++) {
                 if (check(cur.origin, i, j)) {
@@ -98,7 +98,7 @@ let Game = function () {
         }
     };
 //     设置数据
-    let setData = function () {
+    let setData = () => {
         for (let i = 0; i < cur.data.length; i++) {
             for (let j = 0; j < cur.data[0].length; j++) {
                 if (check(cur.origin, i, j)) {
@@ -108,7 +108,7 @@ let Game = function () {
         }
     };
     //    下移
-    let down = function () {
+    let down = () => {
         if (cur.canDown(isValid)) {
             clearData();
             cur._down();
@@ -120,7 +120,7 @@ let Game = function () {
         }
     };
     //    左移
-    let left = function () {
+    let left = () => {
         if (cur.canLeft(isValid)) {
             clearData();
             cur._left();
@@ -129,7 +129,7 @@ let Game = function () {
         }
     };
     //    右移
-    let right = function () {
+    let right = () => {
         if (cur.canRight(isValid)) {
             clearData();
             cur._right();
@@ -138,7 +138,7 @@ let Game = function () {
         }
     };
 //    旋转
-    let rotate = function () {
+    let rotate = () => {
         if (cur.canRotate(isValid)) {
             clearData();
             cur._rotate();
@@ -147,7 +147,7 @@ let Game = function () {
         }
     };
 //    方块移动到游戏底部，给他固定
-    let fixed = function () {
+    let fixed = () => {
         for (let i = 0; i < cur.data.length; i++) {
             for (let j = 0; j < cur.data[0].length; j++) {
                 if (check(cur.origin, i, j)) {
@@ -160,7 +160,7 @@ let Game = function () {
         refreshDiv(gameData, gameDivs);
     };
 //    消除一整行
-    let checkClear = function () {
+    let checkClear = () => {
         let line = 0;
         for (let i = gameData.length - 1; i >= 0; i--) {
             let clear = true;
@@ -188,7 +188,8 @@ let Game = function () {
         return line;
     };
 //      检查游戏结束
-    let checkGameOver = function () {
+    let checkGameOver = () => {
+        //  如果最上面一行等于1,则游戏结束,返回true,否则返回false
         let gameOver = false;
         for (let i = 0; i < gameData[0].length; i++) {
             if (gameData[0][i] == 1) {
@@ -198,7 +199,7 @@ let Game = function () {
         return gameOver;
     };
 //    使用下一个方块
-    let performNext = function (type, dire) {
+    let performNext = (type, dire) => {
         cur = next;
         setData();
         next = SquareFactory.prototype.make(type, dire);
@@ -207,11 +208,11 @@ let Game = function () {
     };
 
 //    设置时间
-    let setTime = function (time) {
+    let setTime = (time) => {
         timeDiv.innerHTML = time;
     };
 //    统计分数
-    let addScore = function (line) {
+    let addScore = (line) => {
         let s = 0;
         switch (line) {
             case 1:
@@ -233,15 +234,15 @@ let Game = function () {
         scoreDiv.innerHTML = score;
     };
 //    gameOver界面显出,游戏结束
-    let gameOver = function (win) {
-        if (win) {
-            resultDiv.innerHTML = '你赢了';
-        } else {
-            resultDiv.innerHTML = '你输了';
-        }
-    };
+//     let gameOver = (win) => {
+//         if (win) {
+//             resultDiv.innerHTML = '恭喜你，你赢了！';
+//         } else {
+//             resultDiv.innerHTML = '很遗憾，你输了';
+//         }
+//     };
 //    对战干扰，底部增加干扰行
-    let addLine = function (lines) {
+    let addLine = (lines) => {
         let len = lines.length;
         for (let i = 0; i < gameData.length - len; i++) {
             gameData[i] = gameData[i + len];
@@ -256,7 +257,7 @@ let Game = function () {
         resultDiv(gameData, gameDivs)
     };
 //    初始化
-    let init = function (doms, type, dire) {
+    let init = (doms, type, dire) => {
         gameDiv = doms.gameDiv;
         nextDiv = doms.nextDiv;
         timeDiv = doms.timeDiv;
@@ -275,7 +276,7 @@ let Game = function () {
     this.left = left;
     this.right = right;
     this.rotate = rotate;
-    this.fall = function () {
+    this.fall = () => {
         while (down());
     };
     this.fixed = fixed;
@@ -284,6 +285,6 @@ let Game = function () {
     this.checkGameOver = checkGameOver;
     this.setTime = setTime;
     this.addScore = addScore;
-    this.gameOver = gameOver;
+    // this.gameOver = gameOver;
     this.addLine = addLine;
 };

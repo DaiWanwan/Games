@@ -5,48 +5,53 @@ let Remote = function () {
     //  游戏对象
     let game;
     //     绑定按钮事件
-    let bindEvents = function () {
-        socket.on('init', function (data) {
+    let bindEvents = () => {
+        socket.on('init', (data) => {
             start(data.type, data.dire);
         });
-        socket.on('next', function (data) {
+        socket.on('next', (data) => {
             game.performNext(data.type, data.dire);
         });
-        socket.on('rotate', function (data) {
+        socket.on('rotate', () => {
             game.rotate();
         });
-        socket.on('left', function (data) {
+        socket.on('left', () => {
             game.left();
         });
-        socket.on('right', function (data) {
+        socket.on('right', () => {
             game.right();
         });
-        socket.on('down', function (data) {
+        socket.on('down', () => {
             game.down();
         });
-        socket.on('fall', function (data) {
+        socket.on('fall', () => {
             game.fall();
         });
-        socket.on('fixed', function (data) {
+        socket.on('fixed', () => {
             game.fixed();
         });
-        socket.on('line', function (data) {
+        socket.on('line', (data) => {
             game.checkClear();
             game.addScore(data)
         });
-        socket.on('time', function (data) {
+        socket.on('time', (data) => {
             game.setTime(data);
         });
-        socket.on('time', function (data) {
-            game.gameOver(false);
+        socket.on('lose', () => {
+            // game.gameOver(false);
+            // 当对方输了，第二者窗口的显示
+            document.querySelector('#local-gameOver').innerHTML = '恭喜你，你赢了~';
+            //  自己界面 对方窗口显示
+            document.querySelector('#remote-gameOver').innerHTML = '你战胜了对方';
+
         });
-        socket.on('addLine', function (data) {
+        socket.on('addLine', () => {
             game.addLine(false);
         });
 
     };
     //  开始游戏
-    let start = function (type, dire) {
+    let start = (type, dire) => {
         let doms = {
             gameDiv: document.querySelector('#remote-game'),
             nextDiv: document.querySelector('#remote-next'),

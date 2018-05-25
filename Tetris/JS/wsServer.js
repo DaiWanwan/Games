@@ -8,8 +8,8 @@ let clientCount = 0;
 let socketMap = {};
 
 app.listen(PORT);
-let bindLister = function (socket, event) {
-    socket.on(event, function (data) {
+let bindLister = (socket, event) => {
+    socket.on(event, (data) => {
         if (socket.clientNum % 2 == 0) {
             if (socketMap[socket.clientNum - 1]) {
                 socketMap[socket.clientNum - 1].emit(event, data);
@@ -21,7 +21,7 @@ let bindLister = function (socket, event) {
         }
     });
 };
-io.on('connection', function (socket) {
+io.on('connection', (socket) => {
     clientCount++;
     socket.clientNum = clientCount;
     socketMap[clientCount] = socket;
@@ -38,6 +38,7 @@ io.on('connection', function (socket) {
         }
     }
     bindLister(socket, 'init');
+    bindLister(socket, 'left');
     bindLister(socket, 'next');
     bindLister(socket, 'rotate');
     bindLister(socket, 'right');
@@ -47,9 +48,9 @@ io.on('connection', function (socket) {
     bindLister(socket, 'line');
     bindLister(socket, 'time');
     bindLister(socket, 'lose');
-    bindLister(socket,'bottomLines');
-    bindLister(socket,'addLine');
-    socket.on('disconnect', function () {
+    bindLister(socket, 'bottomLines');
+    bindLister(socket, 'addLine');
+    socket.on('disconnect', () => {
         if (socket.clientNum % 2 == 0) {
             if (socketMap[socket.clientNum - 1]) {
                 socketMap[socket.clientNum - 1].emit('leave');
