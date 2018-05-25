@@ -3,7 +3,7 @@ let Local = function () {
 
     let game;
     // 时间间隔
-    const INTERVAL = 200;
+    const INTERVAL = 300;
     //定时器
     let timer = null;
     //  时间计数器
@@ -15,14 +15,19 @@ let Local = function () {
         document.onkeydown = function (e) {
             if (e.keyCode === 37) {  // left
                 game.left();
+                socket.emit('left');
             } else if (e.keyCode === 38) {  // 旋转
                 game.rotate();
+                socket.emit('rotate');
             } else if (e.keyCode === 39) {  // right
                 game.right();
+                socket.emit('right');
             } else if (e.keyCode === 40) {  // down
                 game.down();
+                socket.emit('down');
             } else if (e.keyCode === 32) {  //空格键
                 game.fall();
+                socket.emit('fall');
             }
         }
     };
@@ -32,17 +37,30 @@ let Local = function () {
         // game.down();
         if (!game.down()) {
             game.fixed();
+            socket.emit('fixed');
             let line = game.checkClear();
             if (line) {
                 game.addScore(line);
+                socket.emit('line', line);
+                if (line > 1) {
+                    let bottomLine = generateBottomLine(line);
+                    socket.emit('bottomLines',bottomLine)
+                }
             }
             let gameOver = game.checkGameOver();
             if (gameOver) {
                 game.gameOver(false);
+                document.querySelector('#remote-gameOver').innerHTML = '你赢了！';
+                socket.emit('lose');
                 stop()
             } else {
-                game.performNext(generateType(), generateDire());
+                let type = generateType();
+                let dire = generateDire();
+                game.performNext(type, dire);
+                socket.emit('next', {type, dire});
             }
+        } else {
+            socket.emit('down');
         }
 
     };
@@ -65,9 +83,7 @@ let Local = function () {
             timeCount = 0;
             time += 1;
             game.setTime(time);
-            if (time % 10 == 0) {
-                game.addLine(generateBottomLine(1));
-            }
+            socket.emit('time', time);
         }
     };
     //  随机生成一个方块矩阵
@@ -88,9 +104,15 @@ let Local = function () {
             resultDiv: document.querySelector('#local-gameOver')
         };
         game = new Game();
-        game.init(doms, generateType(), generateDire());
+        let type = generateType();
+        let dire = generateDire();
+        game.init(doms, type, dire);
+        socket.emit('init', {type, dire});
         bindKeyEvent();
-        game.performNext(generateType(), generateDire());
+        let type2 = generateType();
+        let dire2 = generateDire();
+        game.performNext(type2, dire2);
+        socket.emit('next', {type: type2, dire: dire2});
         timer = setInterval(move, INTERVAL);
     };
 //    结束
@@ -101,6 +123,21 @@ let Local = function () {
         }
         document.onkeydown = null;
     };
-//     导出api
-    this.start = start;
+    socket.on('start', function () {
+        document.querySelector('#waiting').innerHTML = '';
+        start();
+    });
+    socket.on('lose', function () {
+        game.gameOver(true);
+        stop();
+    });
+    socket.on('leave', function () {
+        document.querySelector('#local-gameOver').innerHTML = '对方掉线~';
+        document.querySelector('#remote-gameOver').innerHTML = '您已掉线~';
+        stop();
+    });
+    socket.on('bottomLines', function (data) {
+        game.addLine(data);
+        socket.emit('addLine',data);
+    });
 };

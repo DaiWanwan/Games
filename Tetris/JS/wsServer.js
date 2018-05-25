@@ -8,7 +8,19 @@ let clientCount = 0;
 let socketMap = {};
 
 app.listen(PORT);
-
+let bindLister = function (socket, event) {
+    socket.on(event, function (data) {
+        if (socket.clientNum % 2 == 0) {
+            if (socketMap[socket.clientNum - 1]) {
+                socketMap[socket.clientNum - 1].emit(event, data);
+            }
+        } else {
+            if (socketMap[socket.clientNum + 1]) {
+                socketMap[socket.clientNum + 1].emit(event, data);
+            }
+        }
+    });
+};
 io.on('connection', function (socket) {
     clientCount++;
     socket.clientNum = clientCount;
@@ -18,12 +30,36 @@ io.on('connection', function (socket) {
     if (clientCount % 2 == 1) {
         socket.emit('waiting', 'waiting for another person.')
     } else {
-        socket.emit('start');
-        socketMap[clientCount - 1].emit('start');
-
+        if (socketMap[clientCount - 1]) {
+            socket.emit('start');
+            socketMap[clientCount - 1].emit('start');
+        } else {
+            socket.emit('leave');
+        }
     }
+    bindLister(socket, 'init');
+    bindLister(socket, 'next');
+    bindLister(socket, 'rotate');
+    bindLister(socket, 'right');
+    bindLister(socket, 'down');
+    bindLister(socket, 'fall');
+    bindLister(socket, 'fixed');
+    bindLister(socket, 'line');
+    bindLister(socket, 'time');
+    bindLister(socket, 'lose');
+    bindLister(socket,'bottomLines');
+    bindLister(socket,'addLine');
     socket.on('disconnect', function () {
-
+        if (socket.clientNum % 2 == 0) {
+            if (socketMap[socket.clientNum - 1]) {
+                socketMap[socket.clientNum - 1].emit('leave');
+            }
+        } else {
+            if (socketMap[socket.clientNum + 1]) {
+                socketMap[socket.clientNum + 1].emit('leave');
+            }
+        }
+        delete (socketMap[socket.clientNum]);
     });
 });
 console.log(`webSocket listening on port ${PORT}`);

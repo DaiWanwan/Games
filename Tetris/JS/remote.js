@@ -6,45 +6,44 @@ let Remote = function () {
     let game;
     //     绑定按钮事件
     let bindEvents = function () {
-        document.querySelector('#down').onclick = function () {
-            game.down();
-        };
-        document.querySelector('#left').onclick = function () {
-            game.left();
-        };
-        document.querySelector('#right').onclick = function () {
-            game.right();
-        };
-        document.querySelector('#fall').onclick = function () {
-            game.fall();
-        };
-        document.querySelector('#rotate').onclick = function () {
+        socket.on('init', function (data) {
+            start(data.type, data.dire);
+        });
+        socket.on('next', function (data) {
+            game.performNext(data.type, data.dire);
+        });
+        socket.on('rotate', function (data) {
             game.rotate();
-        };
-        document.querySelector('#fixed').onclick = function () {
+        });
+        socket.on('left', function (data) {
+            game.left();
+        });
+        socket.on('right', function (data) {
+            game.right();
+        });
+        socket.on('down', function (data) {
+            game.down();
+        });
+        socket.on('fall', function (data) {
+            game.fall();
+        });
+        socket.on('fixed', function (data) {
             game.fixed();
-        };
-        document.querySelector('#performNext').onclick = function () {
-            game.performNext(2, 2);
-        };
-        document.querySelector('#checkClear').onclick = function () {
+        });
+        socket.on('line', function (data) {
             game.checkClear();
-        };
-        document.querySelector('#checkGameOver').onclick = function () {
-            game.checkGameOver();
-        };
-        document.querySelector('#setTime').onclick = function () {
-            game.setTime(20);
-        };
-        document.querySelector('#addScore').onclick = function () {
-            game.addScore(3);
-        };
-        document.querySelector('#gameOver').onclick = function () {
-            game.gameOver(true);
-        };
-        document.querySelector('#addLine').onclick = function () {
-            game.addLine([[0, 1, 0, 1, 0, 1, 0, 1, 0, 1]]);
-        };
+            game.addScore(data)
+        });
+        socket.on('time', function (data) {
+            game.setTime(data);
+        });
+        socket.on('time', function (data) {
+            game.gameOver(false);
+        });
+        socket.on('addLine', function (data) {
+            game.addLine(false);
+        });
+
     };
     //  开始游戏
     let start = function (type, dire) {
@@ -58,9 +57,6 @@ let Remote = function () {
         game = new Game();
         game.init(doms, type, dire);
     };
+    bindEvents();
 
-
-//    导出api
-    this.start = start;
-    this.bindEvents = bindEvents;
 };
