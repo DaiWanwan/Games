@@ -238,7 +238,7 @@ SquareFactory.prototype.make = function (index, dir) {
         case 6:
             s = new Square6();
             break;
-        case 7:
+        case 0:
             s = new Square7();
             break;
         default:
