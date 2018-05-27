@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
     //  如果单个人需要等待下一人进来进行配对
 
     if (clientCount % 2 == 1) {
-        socket.emit('waiting', 'waiting for another person.')
+        socket.emit('waiting', 'Waiting for another person...')
     } else {
         if (socketMap[clientCount - 1]) {
             socket.emit('start');

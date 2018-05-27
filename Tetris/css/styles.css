@@ -1,19 +1,48 @@
-.square {
+.container {
+  width: 850px;
+  margin: 50px auto 0;
+  padding: 20px;
+  border: 2px dashed blue;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.container h2 {
+  text-align: center;
+}
+.container .square {
   width: 400px;
-  height: 600px;
+  height: 480px;
   float: left;
 }
-.square .title {
-  font-size: 30px;
-  margin: 0 auto;
+.container .square .game_wrapper {
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+}
+.container .square .game_wrapper .waiting {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding-top: 120px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #F2FAFF;
+  z-index: 9999;
+  font-size: 18px;
+}
+.container .segmentation {
+  height: 440px;
+  float: left;
+  margin: 20px;
+  border: 1px dashed blue;
 }
 .game {
   width: 200px;
   height: 400px;
   background-color: #F2FAFF;
-  border-left: 1px solid blue;
-  border-right: 1px solid blue;
-  border-bottom: 1px solid blue;
+  border: 1px solid blue;
   position: relative;
   float: left;
 }
@@ -23,13 +52,24 @@
   background-color: #F2FAFF;
   position: relative;
   float: left;
-  margin-left: 40px;
+  margin-left: 30px;
   border: 1px solid blue;
 }
 .info {
   float: left;
-  margin-left: 40px;
+  width: 165px;
+  margin-left: 30px;
   margin-top: 10px;
+  font-size: 16px ;
+}
+.info .info-item {
+  margin-top: 5px;
+}
+.info .info-item #local-time,
+.info .info-item #local-score,
+.info .info-item #remote-time,
+.info .info-item #remote-score {
+  font-size: 18px;
 }
 .none,
 .current,

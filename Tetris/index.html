@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>俄罗斯方块</title>
+    <link rel="shortcut icon" href="./../assets/favicon.ico">
+    <link rel="apple-touch-icon" href="./../assets/favicon.png">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-<div>请用方向键进行操作：上->旋转，左->左移，右->右移，下->下移，空格->坠落；</div>
-<div id="waiting"></div>
-<div id="local" class="square">
-    <div class="title">我的游戏区域</div>
-    <!-- 游戏界面-->
-    <div id="local-game" class="game"></div>
-    <!--下一个方块子窗口-->
-    <div id="local-next" class="next"></div>
-    <div class="info">
-        <div>已用时：<span id="local-time">0</span>s</div>
-        <div>得分：<span id="local-score">0</span>分</div>
-        <div id="local-gameOver"></div>
+<div class="container">
+    <h2>火拼俄罗斯方块</h2>
+    <div class="operating">
+        <h3>操作指南</h3>
+        <p>请用方向键进行操作：上->旋转，左->左移，右->右移，下->下移，空格->坠落；</p>
+    </div>
+    <div id="local" class="square">
+        <h3>我的游戏区域</h3>
+        <div class="game_wrapper">
+            <div id="waiting" class="waiting"></div>
+            <!-- 游戏界面-->
+            <div id="local-game" class="game"></div>
+            <!--下一个方块子窗口-->
+            <div id="local-next" class="next"></div>
+
+            <div class="info">
+                <div class="info-item">已用时：<span id="local-time">0</span> s</div>
+                <div class="info-item">得分：<span id="local-score">0</span> 分</div>
+                <div class="info-item" id="local-gameOver"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="segmentation"></div>
+    <div id="remote" class="square">
+        <h3>对方游戏区域</h3>
+        <!-- 游戏界面-->
+        <div id="remote-game" class="game"></div>
+        <!--下一个方块子窗口-->
+        <div id="remote-next" class="next"></div>
+        <div class="info">
+            <div class="info-item">已用时：<span id="remote-time">0</span> s</div>
+            <div class="info-item">得分：<span id="remote-score">0</span> 分</div>
+            <div class="info-item" id="remote-gameOver"></div>
+        </div>
     </div>
 </div>
-<div id="remote" class="square">
-    <div class="title">对方游戏区域</div>
-    <!-- 游戏界面-->
-    <div id="remote-game" class="game"></div>
-    <!--下一个方块子窗口-->
-    <div id="remote-next" class="next"></div>
-    <div class="info">
-        <div>已用时：<span id="remote-time">0</span>s</div>
-        <div>得分：<span id="remote-score">0</span>分</div>
-        <div id="remote-gameOver"></div>
-    </div>
-</div>
+
 <script src="JS/socket.io.js"></script>
 <script src="./JS/square.js"></script>
 <script src="./JS/squareFactory.js"></script>

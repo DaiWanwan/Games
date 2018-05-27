@@ -37,12 +37,25 @@ let Remote = function () {
         socket.on('time', (data) => {
             game.setTime(data);
         });
-        socket.on('lose', () => {
+        socket.on('lose', (data) => {
             // game.gameOver(false);
             // 当对方输了，第二者窗口的显示
-            document.querySelector('#local-gameOver').innerHTML = '恭喜你，你赢了~';
+            let local_score=document.querySelector('#local-score').innerHTML;
+            let remote_score=document.querySelector('#remote-score').innerHTML;
+            document.querySelector('#waiting').innerHTML = `
+                <p>恭喜你，你赢了~</p>
+                <p>您的得分为 ${local_score} 分</p>
+                <p>对方的得分为 ${remote_score} 分</p>`;
+            // document.querySelector('#waiting').innerHTML =
+            //     `
+            //     <p>恭喜你，你赢了~</p>
+            //     <p>你的得分是${data}</p>
+            //         `;
+            // document.querySelector('#waiting').innerHTML = '';
+            document.querySelector('#waiting').style.display = "block";
+            // document.querySelector('#local-gameOver').innerHTML = '恭喜你，你赢了~';
             //  自己界面 对方窗口显示
-            document.querySelector('#remote-gameOver').innerHTML = '你战胜了对方';
+            // document.querySelector('#remote-gameOver').innerHTML = '你战胜了对方';
 
         });
         socket.on('addLine', () => {

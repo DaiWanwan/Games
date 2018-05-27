@@ -3,7 +3,7 @@ let Local = function () {
 
     let game;
     // 时间间隔
-    const INTERVAL = 300;
+    const INTERVAL = 200;
     //定时器
     let timer = null;
     //  时间计数器
@@ -53,9 +53,16 @@ let Local = function () {
             let gameOver = game.checkGameOver();
             if (gameOver) {  //  若本人输了
                 //  自己窗口的显示
-                document.querySelector('#local-gameOver').innerHTML = '很遗憾，你输了~';
+                let local_score=document.querySelector('#local-score').innerHTML;
+                let remote_score=document.querySelector('#remote-score').innerHTML;
+                document.querySelector('#waiting').innerHTML = `
+                <p>很遗憾，你输了~</p>
+                <p>您的得分为 ${local_score} 分</p>
+                <p>对方的得分为 ${remote_score} 分</p>`;
+                // document.querySelector('#waiting').innerHTML = '';
+                document.querySelector('#waiting').style.display="block";
                 //  自己界面  对方窗口显示
-                document.querySelector('#remote-gameOver').innerHTML = '对方战胜了你。';
+                // document.querySelector('#remote-gameOver').innerHTML = '对方战胜了你。';
                 //  发送我输了的消息
                 socket.emit('lose');
                 stop()
@@ -132,6 +139,7 @@ let Local = function () {
     // 对方进入页面，开始游戏，我这边监听
     socket.on('start', () => {
         document.querySelector('#waiting').innerHTML = '';
+        document.querySelector('#waiting').style.display="none";
         start();
     });
      // 对方输了
@@ -147,6 +155,7 @@ let Local = function () {
     socket.on('leave', () => {
         document.querySelector('#local-gameOver').innerHTML = '对方掉线~';
         document.querySelector('#remote-gameOver').innerHTML = ' ';
+        document.querySelector('#waiting').style.display="none";
         stop();
     });
     //   对方给你增加干扰行

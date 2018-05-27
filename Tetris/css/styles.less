@@ -1,13 +1,46 @@
 @import "_variables.less";
 @import "mixin.less";
 
-.square {
-  width: 400px;
-  height: 600px;
-  float: left;
-  .title {
-    font-size: 30px;
-    margin: 0 auto;
+.container {
+  width: 850px;
+  margin: 50px auto 0;
+  padding: 20px;
+  border: 2px dashed blue;
+  border-radius: 10px;
+  overflow: hidden;
+  h2 {
+    text-align: center;
+  }
+  .square {
+    width: 400px;
+    height: 480px;
+    float: left;
+    .game_wrapper{
+      width: 400px;
+      position: relative;
+      overflow: hidden;
+      .waiting {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding-top: 120px;
+        background: rgba(0, 0, 0, .8);
+        color: #F2FAFF;
+        z-index: 9999;
+          font-size: 18px;
+      }
+    }
+  }
+  .segmentation {
+    //width: 2px;
+    height: 440px;
+    //background: blue;
+    float: left;
+    margin: 20px;
+    border: 1px dashed blue
   }
 }
 
@@ -15,9 +48,7 @@
   width: 200px;
   height: 400px;
   background-color: @bgColor;
-  border-left: 1px solid blue;
-  border-right: 1px solid blue;
-  border-bottom: 1px solid blue;
+  .border-1px(blue);
   position: relative;
   float: left;
 }
@@ -28,14 +59,22 @@
   background-color: @bgColor;
   position: relative;
   float: left;
-  margin-left: 40px;
+  margin-left: 30px;
   .border-1px(blue);
 }
 
 .info {
   float: left;
-  margin-left: 40px;
+  width: 165px;
+  margin-left: 30px;
   margin-top: 10px;
+  font-size: 16px ;
+  .info-item{
+    margin-top: 5px;
+    #local-time,#local-score,#remote-time,#remote-score{
+      font-size: 18px;
+    }
+  }
 }
 
 .none, .current, .done {
